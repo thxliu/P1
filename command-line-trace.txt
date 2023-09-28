@@ -1,0 +1,24 @@
+CLIENT TRACE 
+% python3 math-operations-client.py
+Enter the operation in the form 'number operator number': 3 + 4
+
+client starting - connecting to server at IP 127.0.0.1 and port 65432
+
+connection established, sending request '3 + 4'
+
+request sent, waiting for reply
+
+Received equation answer: 'b'7'' [1 bytes]
+
+client is done!
+
+SERVER TRACE
+% python3 math-operations-server.py
+
+server starting - listening for connections at IP 127.0.0.1 and port 65432
+
+Connected established with ('127.0.0.1', 57001)
+
+Client equation has been received: 'b'3 + 4'' [5 bytes]
+
+server is done!

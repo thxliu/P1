@@ -46,9 +46,6 @@ You must submit these work products:
 Below we illustrate command line traces for a client-server application in which the server response to requests to perform simple math operations.
 
 ### Client Trace
-
-% python3 simple-math-client.py add 1 3 5
-
 client starting - connecting to math server at IP 127.0.0.1 and port 65432
 
 connection established, sending request '+1:3:5'

@@ -1,0 +1,46 @@
+OVERVIEW OF APPLICATION 
+The math-operations client and server application is a real-time calculator for the basic math operations (addition, subtraction, multiplication, and division) using inputs requested by the client. 
+When prompted, the client inputs 2 numbers and a operator in the form of 'number operator number'. 
+The request is then encoded and sent to the server.
+Once the server socket accepts the connection, it decodes the input and stores the string in the variable 'msg'.
+'msg' is then broken up using .split() and stored in a list called 'equation_list'.
+Next, the value of the first number is given by equation_list[0], the operator is given by equation_list[1], and the value of the second number is given by equation_list[2].
+int() is enacted on equation_list[i] for the two numbers so that they can be used for mathematical operations.
+Using if statements, the server checks if the operator is either +, -, *, or / and then applies that operation to the two numbers accordingly.
+The result is stored in a variable 'total' which is initial value is 0. 
+'total' is turned into a string and stored into the variable 'answer'.
+To send the result back to the client, answer is encoded and sent back using .sendall().
+The server application closes. 
+The client receives the result from the server and the program prints it out along with its bytes.
+
+CLIENT -> SERVER MESSAGE FORMAT 
+Each request from the client is sent to the server as a string containing the inputted equation. 
+The client then connects to the server at the IP address and port, in this case IP 127.0.0.1 and port 65432.
+The terminal notifies the client that the connection is established and the request is being sent.
+The client is then notified that the request has been sent and that the application is now waiting for a reply. 
+Once the server sends the result, the terminal tells the client that it has received the equation answer, gives the answer, and provides the number of bytes sent. 
+The application finishes by printing 'client is done!'.
+
+SERVER -> CLIENT MESSAGE FORMAT 
+The server starts and listens for connections at the IP adress and port, in this case IP 127.0.0.1 and port 65432.
+The terminal then prints out that the connection has been established with the IP address and port. 
+The server then notifies that the client equation has been received and prints out the request along with the number of bytes received with the request
+Once the appropriate calculation is made, the server sends the result and closes along with the print statement 'server is done!'.
+
+EXAMPLE OUTPUT 
+Request: 3 + 4
+Output: 'b'7'' [1 bytes]
+
+Request: 3 - 4
+Output: 'b'-1'' [2 bytes]
+
+Request: 3 * 4
+Output: 'b'12'' [2 bytes]
+
+Request: 3 / 4
+Output: 'b'0.75'' [4 bytes]
+
+ACKNOWLEDGMENTS 
+The TAs were very helpful with helping me refresh my Python skills as well as identify technical errors preventing my code from running smoothly. 
+Online resources like StackOverflow, the Python tutorial, and w3schools helped me understand the different parts of client-server applications and how to tailor them to fit the purpose of my project. 
+
